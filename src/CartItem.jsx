@@ -9,9 +9,9 @@ const CartItem = ({ onContinueShopping }) => {
 
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
-    const totalAmount = cart.items.reduce((total, item) => {
+    const totalAmount = cart.reduce((total, item) => {
         const cost = parseFloat(item.cost.substring(1));
-        return item.quantity * cost;
+        return total + item.quantity * cost;
     }, 0);
     return totalAmount;
   };
