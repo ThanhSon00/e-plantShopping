@@ -297,7 +297,7 @@ function ProductList({ onHomeClick }) {
                                     <div className='product-card' key={plantIndex}>
                                         <img src={plant.image} className='product-image' alt={plant.name}/>
                                         <div className='product-title'>{plant.name}</div>
-                                        <div className='product-price'>${plant.cost}</div>
+                                        <div className='product-price'>{plant.cost}</div>
                                         <div>{plant.description}</div>
                                         <button className={`product-button ${addedToCart[plant.name] ? 'added-to-cart' : ''}`} disabled={addedToCart[plant.name]} onClick={() => handleAddToCart(plant)}>{addedToCart[plant.name] ? 'Added to Cart' : 'Add to Cart'}</button>
                                     </div>
@@ -307,7 +307,7 @@ function ProductList({ onHomeClick }) {
                     ))}                    
                 </div>
             ) : (
-                <CartItem onContinueShopping={handleContinueShopping} />
+                <CartItem onContinueShopping={handleContinueShopping} setAddedToCart={setAddedToCart}/>
             )}
         </div>
     );
